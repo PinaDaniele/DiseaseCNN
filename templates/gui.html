@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis Classification</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="mainContent">
+        <div class="contentWrapper">
+
+            <div class="titleWrapper">
+                <h1 class="title">Diagnosis classification</h1>
+                <h3 class="subtitle">Upload an image to find your diagnosis</h3>
+            </div>
+
+            <div class="userContent">
+                <div class="inputWrapper">
+                    <div class="modelWrapper">
+                        <label for="modelSelect" class="modelSelectLabel">Choose a model</label>
+                        <select class="modelSelect" id="modelSelect">
+                            <option selected value="lung_cnn">lung cnn</option>
+                            <option value="brain_cnn">brain cnn</option>
+                        </select>
+
+                    </div>
+                    <div class="fileWrapper">
+                        <label for="fileUpload" class="fileUploadLabel">Choose an Image</label>
+                        <p class="filePath" id="filePath"></p>       
+                        <input type="file" id="fileUpload" class="fileUpload">
+                    </div>
+                    <form id="PredictForm" class="PredictForm" method="POST">
+                        <button type="submit" class="analyzeBtn" id="analyzeBtn">Analyze</button>
+                    </form>
+                    <h4 class="resultText" id="resultText"></h4>
+                </diV>
+                <div class="previewWrapper">
+                    <img id="preview" class="preview" src="">
+                </div>   
+            </div>
+            
+        </div>
+        
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

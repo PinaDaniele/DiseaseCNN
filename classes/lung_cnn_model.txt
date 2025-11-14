@@ -1,0 +1,4 @@
+Bacterial Pneumonia
+Normal
+Tuberculosis
+Viral Pneumonia
