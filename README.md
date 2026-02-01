@@ -41,17 +41,10 @@ pip install Flask torch torchvision pillow numpy
 
 ## Installation and Setup
 
-1.  **Clone the repository:**
-
-    ```bash
-    git clone [Your Repository URL]
-    cd [Your Repository Name]
-    ```
-
-2.  **Install dependencies:**
+1.  **Install dependencies:**
     You can install the required packages using the command in the Prerequisites section.
 
-3.  **Prepare Model Assets:**
+2.  **Prepare Model Assets:**
 
       * Create the necessary assets directories: `mkdir Weights classes`
       * Place your trained PyTorch model files (e.g., `lung_cnn_model.pth`) into the **`Weights/`** directory.
