@@ -79,30 +79,3 @@ The prediction process, orchestrated by `GUI.py` and handled by the `predicter` 
 6.  **Result Mapping:** The output tensor's highest value index is found ($\text{torch.max}$) and mapped back to the human-readable class name using the class lists loaded during initialization.
 7.  **Response:** The final prediction string is returned to the client.
 
-## Model Architecture (diseaseCNN)
-
-The `Model.py` file defines a deep Convolutional Neural Network architecture (`diseaseCNN`) using PyTorch's `nn.Module`.
-
-### Convolutional Layers
-
-The network consists of five sequential convolutional blocks, each increasing the number of feature maps:
-
-| Block | Input Channels | Output Channels | Kernel Size | Operation |
-| :--- | :--- | :--- | :--- | :--- |
-| **1** | 1 (Grayscale) | 64 | $3 \times 3$ | Conv $\rightarrow$ ReLU $\rightarrow$ MaxPool ($2 \times 2$) |
-| **2** | 64 | 128 | $3 \times 3$ | Conv $\rightarrow$ ReLU $\rightarrow$ MaxPool ($2 \times 2$) |
-| **3** | 128 | 256 | $3 \times 3$ | Conv $\rightarrow$ ReLU $\rightarrow$ MaxPool ($2 \times 2$) |
-| **4** | 256 | 512 | $3 \times 3$ | Conv $\rightarrow$ ReLU $\rightarrow$ MaxPool ($2 \times 2$) |
-| **5** | 512 | 1024 | $3 \times 3$ | Conv $\rightarrow$ ReLU $\rightarrow$ MaxPool ($2 \times 2$) |
-
-### Fully Connected Layers
-
-The output from the final pooling layer is flattened (yielding a $1024 \times 8 \times 8$ feature vector) and passed through a sequence of fully connected (Linear) layers:
-
-1.  $\text{Linear}(1024 \times 8 \times 8, 1024)$
-2.  $\text{Linear}(1024, 512)$
-3.  $\text{Linear}(512, 256)$
-4.  $\text{Linear}(256, 128)$
-5.  $\text{Linear}(128, \text{numClasses})$ (Output layer)
-
-All fully connected layers except the final one use the ReLU activation function.
